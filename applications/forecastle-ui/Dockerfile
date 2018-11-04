@@ -1,6 +1,2 @@
-FROM node:latest
-ADD . /app
-WORKDIR /app
-RUN yarn install
-CMD yarn webpack --mode=development --output-path=/tmp/public --watch
-
+FROM nginx:latest
+RUN rm /usr/share/nginx/html/index.html # not sure if this is necessary
