@@ -4,21 +4,20 @@ services:
   # APPLICATIONS #
 
   forecastle-ui:
-    build: applications/web-server/
+    build: applications/forecastle-ui/
     volumes:
-      - "web-volume:/usr/share/nginx/html"
+      - "dashboard-volume:/usr/share/nginx/html"
     ports:
       - "8080:80"
-
 
   # COMPONENTS #
 
   dashboard:
     build: components/dashboard
     volumes:
-      - ./components/dashboard/app
-      - forecastle-ui-volume:/tmp/public
+      - ./components/dashboard:/app
+      - dashboard-volume:/tmp/public
 
 volumes:
-  forecastle-ui-volume:
+  dashboard-volume:
 
