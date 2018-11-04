@@ -1,0 +1,13 @@
+version: '3'
+services:
+  forecastle-ui:
+    build: applications/forecastle-ui/
+    volumes:
+      - ./applications/forecastle-ui/app
+      - forecastle-ui-volume:/tmp/public
+    ports:
+    - 3000:3000
+
+volumes:
+  forecastle-ui-volume:
+
